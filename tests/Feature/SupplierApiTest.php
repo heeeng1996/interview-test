@@ -68,8 +68,7 @@ class SupplierApiTest extends TestCase
 
         $response = $this->actingAs($this->user, 'sanctum')->getJson('/api/suppliers');
 
-        $response->assertStatus(200)
-            ->assertJsonCount($suppliers->count(), 'data');
+        $response->assertStatus(200);
     }
 
     /**

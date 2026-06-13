@@ -59,7 +59,7 @@ class Product extends Model
     // A product can belong to many suppliers
     public function suppliers(): BelongsToMany
     {
-        return $this->belongsToMany(Supplier::class, 'product_supplier', 'product_id', 'supplier_id');
+        return $this->belongsToMany(Supplier::class, 'product_supplier', 'product_id', 'supplier_id')->using(ProductSupplier::class)->withTimestamps();
     }
 
     protected function finalPrice(): Attribute

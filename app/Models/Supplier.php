@@ -55,7 +55,7 @@ class Supplier extends Model
     // A supplier can provide many products
     public function products(): BelongsToMany
     {
-        return $this->belongsToMany(Product::class, 'product_supplier', 'supplier_id', 'product_id');
+        return $this->belongsToMany(Product::class, 'product_supplier', 'supplier_id', 'product_id')->using(ProductSupplier::class)->withTimestamps();
     }
 
     public function scopeFilter(Builder $query, array $filters): Builder
