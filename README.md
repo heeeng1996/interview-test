@@ -36,6 +36,7 @@ Clone the repository to your workspace, navigate into the root folder, and compi
 composer install
 cp .env.example .env
 php artisan key:generate
+```
 
 ### 3. Database & Mail Setup
 Open your freshly created .env file in your preferred text editor and configure your database socket credentials and SMTP mail loop settings:
@@ -54,6 +55,7 @@ MAIL_USERNAME=null
 MAIL_PASSWORD=null
 MAIL_ENCRYPTION=null
 MAIL_FROM_ADDRESS="noreply@ecommerce-api.local"
+```
 
 (Note: Create an empty database schema in your database engine matching the DB_DATABASE value specified above before continuing).
 
@@ -61,19 +63,23 @@ MAIL_FROM_ADDRESS="noreply@ecommerce-api.local"
 Execute the schema migration builder to generate the tables using UUID architectures and run the database seeds to populate initial configuration records:
 ```bash
 php artisan migrate:fresh --seed
+```
 
 ### 5. Link Storage Directory (Optional)
 If your product management layer handles physical image or asset uploads, link the public storage disk to your web root:
 ```bash
 php artisan storage:link
+```
 
 ### 6. Launch the Local Development Server
 Boot up Laravel's integrated development server engine:
 ```bash
 php artisan serve
+```
 The application interface will initialize locally at http://127.0.0.1:8000.
 
 ### Automated Testing
 This application ships with a comprehensive test suite covering validation boundaries, route access guards, and cascading relationship rules. To run the automated feature tests, run:
 ```bash
 php artisan test
+```
